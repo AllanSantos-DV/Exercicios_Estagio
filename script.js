@@ -66,7 +66,7 @@ function validarEntrada(valor) {
       .map(function (frase) {
         return frase.charAt(0).toUpperCase() + frase.slice(1);
       })
-      .join("");
+      .join(" ");
   
     document.getElementById("resultado4").textContent = resultado;
   }

@@ -4,12 +4,12 @@ Este é um projeto simples que demonstra diferentes operações de manipulação
 que permite ao usuário interagir com as funcionalidades implementadas.
 
 ## Menu
- - ### [Restrições propostas](#restrições-propostas)
-- ### [Funcionalidades](#funcionalidades)
-- ### [Como Usar](#como-usar)
-- ### [Funções](#funções)
-- ### [Testes com Jest](#testes-com-jest)
-- ### [Contato](#contato)
+ - ### [Restrições propostas para o desafio](#restrições-propostas)
+- ### [Funcionalidades do projeto](#funcionalidades)
+- ### [Como Usar a Aplicação](#como-usar)
+- ### [Funções do projeto](#funções)
+- ### [Testes das funçoes com Jest](#testes-com-jest)
+- ### [Entre em Contato](#contato)
 
 
 ## Restrições propostas

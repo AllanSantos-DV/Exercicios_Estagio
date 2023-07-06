@@ -6,111 +6,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercicios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 
 <body class="bg-dark-subtle">
 
-    <div class="container text-center">
+<div class="container text-center">
 
-        <div class="row justify-content-center align-items-center">
+    <div class="row justify-content-center align-items-center">
 
-            <h1 class="mb-3">Manipulação de Strings</h1>
+        <h1 class="mb-3">Manipulação de Strings</h1>
 
-            <h3>1. Reverta a ordem das palavras nas frases, mantendo a ordem das palavras:</h3>
-            <div class="col-8 mb-3">
-                <div class="input-group mb-1">
-                    <input type="text" id="input1" class="form-control" placeholder="Digite uma frase">
-                    <div class="input-group-append">
-                        <button type="button" class="btn btn-primary" onclick="reverterPalavras()">Gerar
-                            Resultado</button>
-                    </div>
+        <h3>1. Reverta a ordem das palavras nas frases, mantendo a ordem das palavras:</h3>
+        <div class="col-8 mb-3">
+            <div class="input-group mb-1">
+                <label for="input1"></label><input type="text" id="input1" class="form-control"
+                                                   placeholder="Digite uma frase">
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-primary" onclick="chamarReverterPalavras()">Gerar
+                        Resultado
+                    </button>
                 </div>
-                <div class="input-group-text">RESULTADO: &nbsp<span type="text" class="text-danger"
-                        id="resultado1"></span></div>
-
             </div>
+            <div class="input-group-text">RESULTADO: &nbsp<span type="text" class="text-danger"
+                                                                id="resultado1"></span></div>
 
-            <h3>2. Remova todos os caracteres duplicados da string abaixo:</h3>
-            <div class="col-8 mb-3">
-                <div class="input-group mb-1">
-                    <input type="text" id="input2" class="form-control" placeholder="Digite uma frase">
-                    <div class="input-group-append">
-                        <button type="button" class="btn btn-primary" onclick="removerDuplicados()">Gerar
-                            Resultado</button>
-                    </div>
+        </div>
+
+        <h3>2. Remova todos os caracteres duplicados da string abaixo:</h3>
+        <div class="col-8 mb-3">
+            <div class="input-group mb-1">
+                <label for="input2"></label><input type="text" id="input2" class="form-control"
+                                                   placeholder="Digite uma frase">
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-primary" onclick="chamarRemoverDuplicados()">Gerar
+                        Resultado
+                    </button>
                 </div>
-                <div class="input-group-text">RESULTADO: &nbsp<span type="text" class="text-danger"
-                        id="resultado2"></span></div>
             </div>
+            <div class="input-group-text">RESULTADO: &nbsp<span type="text" class="text-danger"
+                                                                id="resultado2"></span></div>
+        </div>
 
-            <h3>3. Encontre a substring palindroma mais longa na string abaixo:</h3>
-            <div class="col-8 mb-3">
-                <div class="input-group mb-1">
-                    <input type="text" id="input3" class="form-control" placeholder="Digite uma palavra">
-                    <div class="input-group-append">
-                        <button type="button" class="btn btn-primary" onclick="encontrarMaiorPalindromo()">Gerar
-                            Resultado</button>
-                    </div>
+        <h3>3. Encontre a substring palindroma mais longa na string abaixo:</h3>
+        <div class="col-8 mb-3">
+            <div class="input-group mb-1">
+                <label for="input3"></label><input type="text" id="input3" class="form-control"
+                                                   placeholder="Digite uma palavra">
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-primary" onclick="chamarMaiorPalindromo()">Gerar
+                        Resultado
+                    </button>
                 </div>
-                <div class="input-group-text">RESULTADO: &nbsp<span type="text" class="text-danger"
-                        id="resultado3"></span></div>
             </div>
+            <div class="input-group-text">RESULTADO: &nbsp<span type="text" class="text-danger"
+                                                                id="resultado3"></span></div>
+        </div>
 
-            <h3>4. Coloque em maiúscula a primeira letra de cada frase na string:</h3>
-            <div class="col-8 mb-3">
-                <div class="input-group mb-1">
-                    <input type="text" id="input4" class="form-control" placeholder="Digite uma frase">
-                    <div class="input-group-append">
-                        <button type="button" class="btn btn-primary" onclick="formatarFrase()">Gerar
-                            Resultado</button>
-                    </div>
+        <h3>4. Coloque em maiúscula a primeira letra de cada frase na string:</h3>
+        <div class="col-8 mb-3">
+            <div class="input-group mb-1">
+                <label for="input4"></label><input type="text" id="input4" class="form-control"
+                                                   placeholder="Digite uma frase">
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-primary" onclick="chamarFormatarFrase()">Gerar
+                        Resultado
+                    </button>
                 </div>
-                <div class="input-group-text">RESULTADO: &nbsp<span type="text" class="text-danger"
-                        id="resultado4"></span></div>
             </div>
+            <div class="input-group-text">RESULTADO: &nbsp<span type="text" class="text-danger"
+                                                                id="resultado4"></span></div>
+        </div>
 
-            <h3>5. Verifique se a string é um anagrama de um palíndromo:</h3>
-            <div class="col-8 mb-3">
-                <div class="input-group mb-1">
-                    <input type="text" id="input5" class="form-control" placeholder="Digite uma frase">
-                    <div class="input-group-append">
-                        <button type="button" class="btn btn-primary" onclick="verificarAnagramaPalindromo()">Gerar
-                            Resultado</button>
-                    </div>
+        <h3>5. Verifique se a string é um anagrama de um palíndromo:</h3>
+        <div class="col-8 mb-3">
+            <div class="input-group mb-1">
+                <label for="input5"></label><input type="text" id="input5" class="form-control"
+                                                   placeholder="Digite uma frase">
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-primary" onclick="chamarAnagramaPalindromo()">Gerar
+                        Resultado
+                    </button>
                 </div>
-                <div class="input-group-text">RESULTADO: &nbsp<span type="text" class="text-danger"
-                        id="resultado5"></span></div>
             </div>
+            <div class="input-group-text">RESULTADO: &nbsp<span type="text" class="text-danger"
+                                                                id="resultado5"></span></div>
         </div>
     </div>
+</div>
 
-    <footer class="mb-5">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h5>Contato</h5>
-            </div>
+<footer class="mb-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h5>Contato</h5>
         </div>
-        <div class="text-center">
-            <div class="form-group">
-                <span>Allan Santos @2023</span>
-            </div>
-
-            <div class="form-group">
-                <label>E-mail:</label>
-                <span>allannascimentodossantos@gmail.com</span>
-            </div>
-
-            <div class="form-group">
-                <label>GitHub:</label>
-                <a href="https://github.com/AllanSantos-DV" target="_blank">Allan-Santos</a>
-            </div>
+    </div>
+    <div class="text-center">
+        <div class="form-group">
+            <span>Allan Santos @2023</span>
         </div>
-        </div>
-    </footer>
 
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        <div class="form-group">
+            <label>E-mail:</label>
+            <span>allannascimentodossantos@gmail.com</span>
+        </div>
+
+        <div class="form-group">
+            <label>GitHub:</label>
+            <a href="https://github.com/AllanSantos-DV" target="_blank">Allan-Santos</a>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
 </body>

@@ -7,6 +7,7 @@ que permite ao usuário interagir com as funcionalidades implementadas.
  - ### [Restrições propostas para o desafio](#restrições-propostas)
 - ### [Funcionalidades do projeto](#funcionalidades)
 - ### [Como Usar a Aplicação](#como-usar)
+     * #### ***GitHub Pages:*** [Exercicios PwC](https://allansantos-dv.github.io/Exercicios_Estagio/)
 - ### [Funções do projeto](#funções)
 - ### [Testes das funçoes com Jest](#testes-com-jest)
 - ### [Entre em Contato](#contato)
@@ -44,13 +45,10 @@ que permite ao usuário interagir com as funcionalidades implementadas.
 
 ## Como usar
 
-1. Acesse o site [Exercicios](https://allansantos-dv.github.io/Exercicios_Estagio/) e siga os exemplos de uso listados
-   no proximo topico.
-2. Ou se preferir vc podera:
-    - Clonar o repositório para o seu ambiente local.
-    - Abrir o arquivo **index.html** em qualquer navegador web.
-    - Interajir com as diferentes funcionalidades digitando entradas nos campos de texto e clicando no botão "Gerar
-      Resultado" correspondente.
+- Clonar o repositório para o seu ambiente local.
+- Abrir o arquivo **index.html** em qualquer navegador web.
+- Interajir com as diferentes funcionalidades digitando entradas nos campos de texto e clicando no botão "Gerar
+  Resultado" correspondente.
 
 ## Funções
 

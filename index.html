@@ -17,81 +17,24 @@
 
         <h1 class="mb-3">Manipulação de Strings</h1>
 
-        <h3>1. Reverta a ordem das palavras nas frases, mantendo a ordem das palavras:</h3>
+        <h3>Selecione um exercício:</h3>
         <div class="col-8 mb-3">
             <div class="input-group mb-1">
-                <label for="input1"></label><input type="text" id="input1" class="form-control"
-                                                   placeholder="Digite uma frase">
+                <label for="exercicio"></label><select id="exercicio" class="form-control">
+                    <option >Inverter palavras</option>
+                    <option >Remover duplicados</option>
+                    <option >Maior palindromo</option>
+                    <option >Formatar frase</option>
+                    <option >Anagrama de palindromo</option>
+                </select>
+                <label for="input"></label><input type="text" id="input" class="form-control" placeholder="Digite um texto">
                 <div class="input-group-append">
-                    <button type="button" class="btn btn-primary" onclick="chamarReverterPalavras()">Gerar
-                        Resultado
-                    </button>
+                    <button type="button" class="btn btn-primary" onclick="validarEntrada()">Gerar Resultado</button>
                 </div>
             </div>
-            <div class="input-group-text">RESULTADO: &nbsp<span type="text" class="text-danger"
-                                                                id="resultado1"></span></div>
-
+            <div class="input-group-text">RESULTADO: &nbsp<span type="text" class="text-danger" id="resultado"></span></div>
         </div>
 
-        <h3>2. Remova todos os caracteres duplicados da string abaixo:</h3>
-        <div class="col-8 mb-3">
-            <div class="input-group mb-1">
-                <label for="input2"></label><input type="text" id="input2" class="form-control"
-                                                   placeholder="Digite uma frase">
-                <div class="input-group-append">
-                    <button type="button" class="btn btn-primary" onclick="chamarRemoverDuplicados()">Gerar
-                        Resultado
-                    </button>
-                </div>
-            </div>
-            <div class="input-group-text">RESULTADO: &nbsp<span type="text" class="text-danger"
-                                                                id="resultado2"></span></div>
-        </div>
-
-        <h3>3. Encontre a substring palindroma mais longa na string abaixo:</h3>
-        <div class="col-8 mb-3">
-            <div class="input-group mb-1">
-                <label for="input3"></label><input type="text" id="input3" class="form-control"
-                                                   placeholder="Digite uma palavra">
-                <div class="input-group-append">
-                    <button type="button" class="btn btn-primary" onclick="chamarMaiorPalindromo()">Gerar
-                        Resultado
-                    </button>
-                </div>
-            </div>
-            <div class="input-group-text">RESULTADO: &nbsp<span type="text" class="text-danger"
-                                                                id="resultado3"></span></div>
-        </div>
-
-        <h3>4. Coloque em maiúscula a primeira letra de cada frase na string:</h3>
-        <div class="col-8 mb-3">
-            <div class="input-group mb-1">
-                <label for="input4"></label><input type="text" id="input4" class="form-control"
-                                                   placeholder="Digite uma frase">
-                <div class="input-group-append">
-                    <button type="button" class="btn btn-primary" onclick="chamarFormatarFrase()">Gerar
-                        Resultado
-                    </button>
-                </div>
-            </div>
-            <div class="input-group-text">RESULTADO: &nbsp<span type="text" class="text-danger"
-                                                                id="resultado4"></span></div>
-        </div>
-
-        <h3>5. Verifique se a string é um anagrama de um palíndromo:</h3>
-        <div class="col-8 mb-3">
-            <div class="input-group mb-1">
-                <label for="input5"></label><input type="text" id="input5" class="form-control"
-                                                   placeholder="Digite uma frase">
-                <div class="input-group-append">
-                    <button type="button" class="btn btn-primary" onclick="chamarAnagramaPalindromo()">Gerar
-                        Resultado
-                    </button>
-                </div>
-            </div>
-            <div class="input-group-text">RESULTADO: &nbsp<span type="text" class="text-danger"
-                                                                id="resultado5"></span></div>
-        </div>
     </div>
 </div>
 

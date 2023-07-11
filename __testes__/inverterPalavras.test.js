@@ -1,6 +1,6 @@
-// __tests__/reverterPalavras.test.js
+// __tests__/inverterPalavras.test.js
 
-const { reverterPalavras } = require('../script');
+const { inverterPalavras } = require('../script');
 test('Reverter a ordem das palavras na frase', () => {
     const frase = "Hello, World! OpenAI is amazing.";
     const resultado = reverterPalavras(frase);

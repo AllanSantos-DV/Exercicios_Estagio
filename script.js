@@ -1,70 +1,54 @@
 //Elementos html
-const inputValue1 = document.getElementById("input1");
-const inputValue2 = document.getElementById("input2");
-const inputValue3 = document.getElementById("input3");
-const inputValue4 = document.getElementById("input4");
-const inputValue5 = document.getElementById("input5");
-let resultado1 = document.getElementById('resultado1');
-let resultado2 = document.getElementById('resultado2');
-let resultado3 = document.getElementById('resultado3');
-let resultado4 = document.getElementById('resultado4');
-let resultado5 = document.getElementById('resultado5');
+const inputValue = document.getElementById("input");
+let resultado = document.getElementById('resultado');
 
-function validarEntrada(valor) {
-    if (valor === null || valor.trim() === "") {
-        alert("Entrada inválida!");
-    }
+const exercicios = {
+    "Inverter palavras": inverterPalavras,
+    "Remover duplicados": removerDuplicados,
+    "Maior palindromo": maiorPalindromo,
+    "Formatar frase": formatarFrase,
+    "Anagrama de palindromo": anagramaPalindromo
+};
+
+function chamarExercicio() {
+    const texto = inputValue.value;
+    const exercicio = document.getElementById("exercicio").value;
+    const funcaoExercicio = exercicios[exercicio];
+    (funcaoExercicio)? resultado.innerHTML = funcaoExercicio(texto) : alert("Exercicio Invalido");
 }
 
-function chamarReverterPalavras(){resultado1.innerText = reverterPalavras(inputValue1.value)}
-function chamarRemoverDuplicados(){resultado2.innerText = removerDuplicados(inputValue2.value)}
-function chamarMaiorPalindromo(){resultado3.innerText = maiorPalindromo(inputValue3.value)}
-function chamarFormatarFrase(){resultado4.innerText = formatarFrase(inputValue4.value)}
-function chamarAnagramaPalindromo(){resultado5.innerText = anagramaPalindromo(inputValue5.value)}
+function validarEntrada() {
+    const valor = inputValue.value;
+    (valor === null || valor.trim() === "")? alert("Entrada Invalida") : chamarExercicio();
+}
 
-function reverterPalavras(frase) {
-    validarEntrada(frase);
+function inverterPalavras(frase) {
     const palavras = frase.split(" ");
     return palavras.reverse().join(" ")
 }
 
 function removerDuplicados(frase) {
-    validarEntrada(frase);
     const caracteres = frase.split("");
     const caracteresUnicos = [...new Set(caracteres)];
     return caracteresUnicos.join("");
 }
 
 function maiorPalindromo(palavra) {
-    validarEntrada(palavra);
-    let maiorPalindromo = "";
+    let maiorPalindromo = '';
+
     for (let i = 0; i < palavra.length; i++) {
-        for (let j = i + 1; j <= palavra.length; j++) {
+        for (let j = palavra.length; j > i + maiorPalindromo.length; j--) {
             const substring = palavra.substring(i, j);
-            if (isPalindromo(substring) && substring.length > maiorPalindromo.length) {
+            if (substring === substring.split('').reverse().join('') && substring.length > maiorPalindromo.length) {
                 maiorPalindromo = substring;
+                break;
             }
         }
     }
     return maiorPalindromo;
 }
 
-function isPalindromo(string) {
-    let left = 0;
-    let right = string.length - 1;
-
-    while (left < right) {
-        if (string.charAt(left) !== string.charAt(right)) {
-            return false;
-        }
-        left++;
-        right--;
-    }
-    return true;
-}
-
 function formatarFrase(frase) {
-    validarEntrada(frase);
     const pontuacoesConhecidas = ['.', '!', '?', ':'];
     const palavras = frase.split(' ');
     const novaFrase = palavras.map((palavra, i) => {
@@ -77,9 +61,7 @@ function formatarFrase(frase) {
     return novaFrase.join(' ');
 }
 
-
 function anagramaPalindromo(palavra) {
-    validarEntrada(palavra);
     const charFrequencyMap = {};
     for (let i = 0; i < palavra.length; i++) {
         const char = palavra[i];
@@ -93,7 +75,3 @@ function anagramaPalindromo(palavra) {
     }
     return oddCount <= 1 ? "true" : "false";
 }
-
-// Exportar a função
-module.exports = { validarEntrada, reverterPalavras, removerDuplicados, maiorPalindromo, isPalindromo, formatarFrase, anagramaPalindromo };
-  

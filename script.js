@@ -14,12 +14,12 @@ function chamarExercicio() {
     const texto = inputValue.value;
     const exercicio = document.getElementById("exercicio").value;
     const funcaoExercicio = exercicios[exercicio];
-    (funcaoExercicio)? resultado.innerHTML = funcaoExercicio(texto) : alert("Exercicio Invalido");
+    (funcaoExercicio) ? resultado.innerHTML = funcaoExercicio(texto) : alert("Exercicio Invalido");
 }
 
 function validarEntrada() {
     const valor = inputValue.value;
-    (valor === null || valor.trim() === "")? alert("Entrada Invalida") : chamarExercicio();
+    (valor === null || valor.trim() === "") ? alert("Entrada Invalida") : chamarExercicio();
 }
 
 function inverterPalavras(frase) {

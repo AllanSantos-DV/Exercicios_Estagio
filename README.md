@@ -1,7 +1,6 @@
 # Manipulação de Strings
 
-Este é um projeto simples que demonstra diferentes operações de manipulação de strings. Ele consiste em uma página web
-que permite ao usuário interagir com as funcionalidades implementadas.
+Este é um projeto simples que demonstra diferentes operações de manipulação de strings. Ele consiste em uma página web que permite ao usuário interagir com as funcionalidades implementadas.
 
 ## Menu
 
@@ -10,301 +9,411 @@ que permite ao usuário interagir com as funcionalidades implementadas.
 * ### [Como Usar a Aplicação](#como-usar)
     * #### ***GitHub Pages:*** [Exercicios PwC](https://allansantos-dv.github.io/Exercicios_Estagio/)
 * ### [Funções do projeto](#funções)
-* ### [Testes das funçoes com Jest](#testes-com-jest)
+* ### [Testes das funções com Jest](#testes-com-jest)
+    * #### ***[Como instalar](#jest-passo-a-passo)***
+    * #### ***[Testes realizados com jest](#testes-realizados)***
 * ### [Entre em Contato](#contato)
 
 ## Restrições propostas
 
-- Para todos os itens você pode presumir que a string de entrada conterá apenas
-  caracteres alfabéticos, espaços e sinais de pontuação.
+- Para todos os itens você pode presumir que a string de entrada conterá apenas caracteres alfabéticos, espaços e sinais de pontuação.
 - A saída para cada tarefa deve ser retornada como uma string.
 
 ## Funcionalidades
 
-### O projeto inclui as seguintes funcionalidades:
+O projeto inclui as seguintes funcionalidades:
 
 1. ***Reversão da ordem das palavras nas frases:***
-    - **O usuário pode digitar uma frase e o programa irá inverter a ordem das palavras, mantendo a ordem das palavras
-      individuais.** <br><br>
+
+    - O usuário pode digitar uma frase e o programa irá inverter a ordem das palavras, mantendo a ordem das palavras individuais.
 
 2. ***Remoção de caracteres duplicados:***
-    - **O usuário pode digitar uma frase e o programa irá remover todos os caracteres duplicados, deixando apenas uma
-      ocorrência de cada caractere.** <br><br>
+
+    - O usuário pode digitar uma frase e o programa irá remover todos os caracteres duplicados, deixando apenas uma ocorrência de cada caractere.
 
 3. ***Encontrar a substring palindrômica mais longa:***
-    - **O usuário pode digitar uma palavra e o programa irá encontrar a substring palindrômica mais longa na palavra.
-      ** <br><br>
+
+    - O usuário pode digitar uma palavra e o programa irá encontrar a substring palindrômica mais longa na palavra.
 
 4. ***Capitalizar a primeira letra de cada frase:***
-    - **O usuário pode digitar uma frase e o programa irá colocar em maiúscula a primeira letra de cada frase na string.
-      ** <br><br>
+
+    - O usuário pode digitar uma frase e o programa irá colocar em maiúscula a primeira letra de cada frase na string.
 
 5. ***Verificar se a string é um anagrama de um palíndromo:***
-    - **O usuário pode digitar uma palavra e o programa irá verificar se a palavra é um anagrama de um palíndromo, ou
-      seja, se é possível rearranjar as letras para formar um palíndromo.**
+
+    - O usuário pode digitar uma palavra e o programa irá verificar se a palavra é um anagrama de um palíndromo, ou seja, se é possível rearranjar as letras para formar um palíndromo.
 
 ## Como usar
 
 - Clonar o repositório para o seu ambiente local.
 - Abrir o arquivo **index.html** em qualquer navegador web.
-- Interajir com as diferentes funcionalidades digitando entradas nos campos de texto e clicando no botão "Gerar
-  Resultado" correspondente.
+- Interagir com as diferentes funcionalidades digitando entrada no campo de texto selecionando o exercicio e clicando no botão "Gerar Resultado".
 
 ## Funções
 
 1. Validação de entrada:
-    - **Descrição:**
-    - `validarEntrada:`Esta função recebe um valor como entrada e verifica se é nulo ou se contém apenas espaços em
-      branco.
-      Se a entrada for inválida, ela exibe um alerta informando sobre a entrada inválida.
 
-    ```javascript
+    - **Descrição:**
+
+        - `validarEntrada`: Esta função recebe um valor como entrada e verifica se é nulo ou se contém apenas espaços em branco. Retorna `true` se a entrada for inválida e `false` se for válida.
+
+        ```javascript
         function validarEntrada(valor) {
-            if (valor === null || valor.trim() === "") {
-                alert("Entrada inválida!");
-            }
+            return !valor || !valor.trim();
         }
-    ```
+        ```
 
-2. Reversão da ordem das palavras nas frases:
+2. Inverter palavras:
+
     - **Descrição:**
-    - `reverterPalavras:` Esta função obtém o valor de entrada de um elemento HTML e valida a entrada. Em seguida,
-      divide a entrada em palavras, reverte a ordem das palavras e as une novamente. O resultado é exibido em outro
-      elemento HTML.
 
-   ```javascript
-        function reverterPalavras(frase) {
-            validarEntrada(frase);
-            const palavras = frase.split(" ");
-            return palavras.reverse().join(" ");
+        - `inverterPalavras`: Esta função recebe uma frase como entrada, divide a frase em palavras, inverte a ordem das palavras e retorna a frase resultante.
+
+        ```javascript
+        function inverterPalavras(frase) {
+            return frase.split(" ").reverse().join(" ");
         }
-   ```
+        ```
 
-    - <code>ENTRADA: Hello, World! OpenAl is amazing.</code>
-    - <pre>RESULTADO: amazing. is OpenAl World! Hello,</pre>
+        - Exemplo:
 
-3. Remoção de caracteres duplicados:
+            - **Entrada:**
+
+                ```
+                Hello, World! OpenAl is amazing.
+                ```
+
+            - **Resultado:**
+
+                ```
+                amazing. is OpenAl World! Hello,
+                ```
+
+3. Remover duplicados:
+
     - **Descrição:**
-    - `removerDuplicados:` Esta função obtém o valor de entrada de um elemento HTML e valida a entrada. Em seguida,
-      divide a entrada em caracteres, remove os caracteres duplicados e os une novamente. O resultado é exibido em
-      outro
-      elemento HTML.
 
-   ```javascript
+        - `removerDuplicados`: Esta função recebe uma frase como entrada, remove os caracteres duplicados da frase e retorna a frase resultante sem os duplicados.
+
+        ```javascript
         function removerDuplicados(frase) {
-            validarEntrada(frase);
-            const caracteres = frase.split("");
-            const caracteresUnicos = [...new Set(caracteres)];
+            const caracteresUnicos = [...new Set(frase)];
             return caracteresUnicos.join("");
         }
-   ```
+        ```
 
-    - <code>ENTRADA: Hello, World!</code>
-    - <pre>RESULTADO: Helo, Wrd!</pre>
+        - Exemplo:
 
-4. Encontrar a substring palindrômica mais longa:
+            - **Entrada:**
+
+                ```
+                Hello, World!
+                ```
+
+            - **Resultado:**
+
+                ```
+                Helo, Wrd!
+                ```
+
+4. Maior palíndromo:
+
     - **Descrição:**
-    - `encontrarMaiorPalindromo:` Esta função obtém o valor de entrada de um elemento HTML e valida a entrada.
-      Em
-      seguida, verifica todas as substrings possíveis na entrada e encontra a maior substring que é um
-      palíndromo usando
-      a função `isPalindromo` . O
-      maior palíndromo encontrado é exibido em um elemento HTML.
 
-   ```javascript
-        function encontrarMaiorPalindromo(palavra) {
-            validarEntrada(palavra);
-            let maiorPalindromo = "";
+        - `maiorPalindromo`: Esta função recebe uma palavra como entrada e encontra o maior palíndromo presente na palavra. Um palíndromo é uma palavra que se lê da mesma forma de trás para frente. A função percorre todas as substrings da palavra e retorna o maior palíndromo encontrado.
+
+    ```javascript
+        function maiorPalindromo(palavra) {
+            let maiorPalindromo = '';
             for (let i = 0; i < palavra.length; i++) {
-                for (let j = i + 1; j <= palavra.length; j++) {
+                for (let j = palavra.length; j > i + maiorPalindromo.length; j--) {
                     const substring = palavra.substring(i, j);
-                    if (isPalindromo(substring) && substring.length > maiorPalindromo.length) {
+                    if (substring === substring.split('').reverse().join('')) {
                         maiorPalindromo = substring;
+                        break;
                     }
                 }
             }
             return maiorPalindromo;
         }
-   ```
+    ```
 
-   ```javascript
-        function isPalindromo(string) {
-            let left = 0;
-            let right = string.length - 1;
+   - Exemplo:
 
-            while (left < right) {
-                if (string.charAt(left) !== string.charAt(right)) {
-                    return false;
-                }
-                left++;
-                right--;
-            }
-            return true;
-        }
-   ```
+     - **Entrada:**
 
-    - <code>ENTRADA: babad</code>
-    - <pre>RESULTADO: bab</pre>
+         ```
+             babad
+         ```
 
-5. Capitalizar a primeira letra de cada frase:
+     - **Resultado:**
+
+       ```
+           bab
+       ```
+
+5. Formatar frase:
+
     - **Descrição:**
-    - `formatarFrase:` Esta função obtém o valor de entrada de um elemento HTML e valida a entrada. Em seguida, divide a
-      frase em palavras, formata as palavras capitalizando a primeira letra de cada palavra que segue uma pontuação
-      conhecida e une as palavras novamente em uma frase formatada. A frase formatada é exibida em um elemento HTML.
-    - `Pontuações consideradas: ['.', '!', '?', ':']`
 
-   ```javascript
+        - `formatarFrase`: Esta função recebe uma frase como entrada e formata a frase em um estilo específico. A função converte todas as palavras para minúsculas, exceto a primeira letra de cada palavra que é convertida para maiúscula. Além disso, a função verifica se uma palavra é a primeira palavra da frase ou segue uma pontuação conhecida (como ".", "!", "?", ":") e, nesses casos, a primeira letra da palavra é convertida para maiúscula. A frase resultante é retornada.
+
+        ```javascript
         function formatarFrase(frase) {
-            validarEntrada(frase);
             const pontuacoesConhecidas = ['.', '!', '?', ':'];
-            const palavras = frase.split(' ');
-            const novaFrase = palavras.map((palavra, i) => {
-                if (i === 0 || pontuacoesConhecidas.includes(palavras[i - 1].slice(-1))) {
-                    return palavra.charAt(0).toUpperCase() + palavra.slice(1);
-                } else {
-                    return palavra;
-                }
-            });
+            const palavras = frase.toLowerCase().split(' ');
+            const novaFrase = palavras.map((palavra, i) =>
+                (i === 0 || pontuacoesConhecidas.includes(palavras[i - 1].slice(-1)))
+                    ? palavra.charAt(0).toUpperCase() + palavra.slice(1)
+                    : palavra
+            );
             return novaFrase.join(' ');
         }
-   ```
+        ```
 
-    - <code>ENTRADA: hello. how are you? i'm fine, thank you.</code>
-    - <pre>RESULTADO: Hello. How are you? I'm fine, thank you.</pre>
+        - Exemplo:
 
-6. Verificar se a string é um anagrama de um palíndromo:
+            - **Entrada:**
+
+                ```
+                hello. how are you? i'm fine, thank you.
+                ```
+
+            - **Resultado:**
+
+                ```
+                Hello. How are you? I'm fine, thank you.
+                ```
+
+6. Anagrama de palíndromo:
+
     - **Descrição:**
-    - `verificarAnagramaPalindromo:` Esta função obtém o valor de entrada de um elemento HTML e valida a entrada. Em
-      seguida, verifica se a entrada é um anagrama de um palíndromo. Se for um anagrama de um palíndromo, o resultado
-      será "true"; caso contrário, será "false". O resultado é exibido em um elemento HTML.
 
-   ```javascript
-        function verificarAnagramaPalindromo(palavra) {
-            validarEntrada(palavra);
+        - `anagramaPalindromo`: Esta função recebe uma palavra como entrada e verifica se é possível formar um palíndromo a partir das letras da palavra. Um palíndromo é uma palavra que se lê da mesma forma de trás para frente. A função conta a frequência de cada caractere na palavra e verifica quantos caracteres possuem uma contagem ímpar. Se houver no máximo um caractere com contagem ímpar, a função retorna "true", caso contrário, retorna "false".
+
+        ```javascript
+        function anagramaPalindromo(palavra) {
             const charFrequencyMap = {};
-            for (let i = 0; i < palavra.length; i++) {
-                const char = palavra[i];
+            for (const char of palavra) {
                 charFrequencyMap[char] = (charFrequencyMap[char] || 0) + 1;
             }
-            let oddCount = 0;
-            for (const count of Object.values(charFrequencyMap)) {
-                if (count % 2 !== 0) {
-                    oddCount++;
-                }
-            }
-            return document.getElementById("resultado5").textContent = oddCount <= 1 ? "true" : "false";
+            const oddCount = Object.values(charFrequencyMap).filter(count => count % 2 !== 0).length;
+            return oddCount <= 1 ? "true" : "false";
         }
-   ```
-    - <code>ENTRADA: racecar</code>
-    - <pre>RESULTADO: true</pre>
+        ```
+
+        - Exemplo:
+
+            - **Entrada:**
+
+                ```
+                racecar
+                ```
+
+            - **Resultado:**
+
+                ```
+                true
+                ```
 
 ## Testes com Jest
 
-**Foram realizados testes das seguintes funçoes:**
+Os testes Jest são uma abordagem para verificar se o código está funcionando corretamente. Eles permitem criar casos de teste para cada função do projeto e verificar se o resultado produzido pela função corresponde ao resultado esperado. Os testes Jest são úteis para garantir a precisão do código, detectar problemas rapidamente e fornecer confiança na qualidade do software desenvolvido.
+
+### Jest passo a passo
+
+Aqui está um passo a passo simples para criar e executar testes com o Jest:
+
+1. Certifique-se de ter o Jest instalado em seu projeto. Você pode instalá-lo usando o npm ou yarn, executando um dos seguintes comandos no terminal:
+
+   ```
+   npm install --save-dev jest
+   ```
+
+2. Crie um arquivo de teste para a função que deseja testar. Por exemplo, se sua função estiver no arquivo "script.js", crie um arquivo "script.test.js" na mesma pasta.
+
+3. No arquivo de teste, importe a função que deseja testar e escreva um ou mais casos de teste usando a função `test` do Jest. Cada caso de teste deve verificar se a saída da função corresponde ao resultado esperado usando as funções `expect` e os métodos de comparação, como `toBe` ou `toEqual`.
+
+   ```javascript
+   const { suaFuncao } = require('./script');
+
+   test('Descrição do caso de teste', () => {
+     // Entrada
+     const resultado = suaFuncao(arg1, arg2, ...);
+
+     // Verificação
+     expect(resultado).toBe(resultadoEsperado);
+   });
+   ```
+
+4. No terminal, execute o comando para executar os testes do Jest:
+
+   ```
+   npx jest
+   ```
+
+   Isso executará todos os arquivos de teste com a extensão ".test.js" encontrados em seu projeto e mostrará os resultados no terminal.
+
+5. Analise os resultados dos testes exibidos no terminal. Eles indicarão quais testes passaram e quais falharam, fornecendo informações úteis para depuração, se necessário.
+
+Essas etapas básicas ajudarão você a criar e executar testes simples com o Jest em seu projeto.
+
+### Testes realizados
+
+Segue abaixo os testes realizados das seguintes funções:
 
 - ### `validarEntrada`
-   ```javascript
-        // __tests__/validarEntrada.test.js
 
-        const { validarEntrada } = require('../script');
-        test('Deve exibir um alerta para entrada inválida', () => {
-            const valorInvalido = null;
-            const alertMock = jest.spyOn(global, 'alert').mockImplementation();
-            validarEntrada(valorInvalido);
-            expect(alertMock).toHaveBeenCalledWith('Entrada inválida!');
-        });
-   ```
+    - **Descrição:**
 
-   ```
-   Resultado: PASS ./validarEntrada.test.js
-   ```
+        - Testa a função `validarEntrada` para verificar se exibe um alerta para entrada inválida.
 
-- ### `reverterPalavras`
+    ```javascript
+    // __tests__/validarEntrada.test.js
 
-   ```javascript
-        // __tests__/inverterPalavras.test.js
+    const { validarEntrada } = require('../script');
 
-        const { reverterPalavras } = require('../script');
-        test('Reverter a ordem das palavras na frase', () => {
-            const frase = "Hello, World! OpenAI is amazing.";
-            const resultado = reverterPalavras(frase);
-            expect(resultado).toBe("amazing. is OpenAI World! Hello,");
-        });
-   ```
+    test('Deve retornar true para entrada inválida ou com somente espaços em branco', () => {
+        const valorInvalido = null;
+        const valorEspaco = "     ";
+        const resultado = validarEntrada(valorInvalido);
+        const resultadoEspaco = validarEntrada(valorEspaco);
+        expect(resultado).toBe(true);
+        expect(resultadoEspaco).toBe(true);
+    });
 
-   ```
-   Resultado: PASS ./inverterPalavras.test.js
-   ```
+    test('Deve retornar false para entrada válida', () => {
+        const valorValido = 'Olá, mundo!';
+        const resultado = validarEntrada(valorValido);
+        expect(resultado).toBe(false);
+    });
+    ```
+
+    - **Resultado:**
+
+        ```
+        Resultado: PASS ./validarEntrada.test.js
+        ```
+
+- ### `inverterPalavras`
+
+    - **Descrição:**
+
+        - Testa a função `inverterPalavras` para verificar se inverte corretamente a ordem das palavras na frase.
+
+    ```javascript
+    // __tests__/inverterPalavras.test.js
+
+    const { inverterPalavras } = require('../script');
+
+    test('Reverter a ordem das palavras na frase', () => {
+        const frase = "Hello, World! OpenAI is amazing.";
+        const resultado = inverterPalavras(frase);
+        expect(resultado).toBe("amazing. is OpenAI World! Hello,");
+    });
+    ```
+
+    - **Resultado:**
+
+        ```
+        Resultado: PASS ./inverterPalavras.test.js
+        ```
 
 - ### `removerDuplicados`
 
-   ```javascript
-        // __tests__/removerDuplicados.test.js
+    - **Descrição:**
 
-        const { removerDuplicados } = require('../script');
-        test('Reverter a ordem das palavras na frase', () => {
-            const frase = "Hello, World!";
-            const resultado = removerDuplicados(frase);
-            expect(resultado).toBe("Helo, Wrd!");
-        });
-   ```
+        - Testa a função `removerDuplicados` para verificar se remove corretamente os caracteres duplicados da frase.
 
-   ```
-   Resultado: PASS ./removerDuplicados.test.js
-   ```
+    ```javascript
+    // __tests__/removerDuplicados.test.js
 
-- ### `maiorPalindromo` juntamente com `isPalindromo`
+    const { removerDuplicados } = require('../script');
 
-   ```javascript
-        // __tests__/maiorPalindromo.test.js
+    test('Remover caracteres duplicados da frase', () => {
+        const frase = "Hello, World!";
+        const resultado = removerDuplicados(frase);
+        expect(resultado).toBe("Helo, Wrd!");
+    });
+    ```
 
-        const { maiorPalindromo } = require('../script');
-        const { isPalindromo } = require('../script');
-        test('Reverter a ordem das palavras na frase', () => {
-            const frase = "babad";
-            const palindromeTrue = isPalindromo("bab")
-            const resultado = maiorPalindromo(frase);
-            expect(resultado).toBe("bab");
-            expect(palindromeTrue).toBe(true)
-        });
-   ```
+    - **Resultado:**
 
-   ```
-   Resultado: PASS ./maiorPalindromo.test.js
-   ```
+        ```
+        Resultado: PASS ./removerDuplicados.test.js
+        ```
+
+- ### `maiorPalindromo`
+
+    - **Descrição:**
+
+        - Testa a função `maiorPalindromo` para verificar se encontra corretamente o maior palíndromo presente na palavra.
+
+    ```javascript
+    // __tests__/maiorPalindromo.test.js
+
+    const { maiorPalindromo } = require('../script');
+  
+    test('Reverter a ordem das palavras na frase', () => {
+        const frase = "babad";
+        const resultado = maiorPalindromo(frase);
+        expect(resultado).toBe("bab");
+    });
+    ```
+
+    - **Resultado:**
+
+        ```
+        Resultado: PASS ./maiorPalindromo.test.js
+        ```
 
 - ### `formatarFrase`
 
-   ```javascript
-        // __tests__/formatarFrase.test.js
+    - **Descrição:**
 
-        const { formatarFrase } = require('../script');
-        test('Reverter a ordem das palavras na frase', () => {
-            const frase = "hello. how are you? i'm fine, thank you.";
-            const resultado = formatarFrase(frase);
-            expect(resultado).toBe("Hello. How are you? I'm fine, thank you.");
-        });
-   ```
+        - Testa a função `formatarFrase` para verificar se formata corretamente a frase.
 
-   ```
-   Resultado: PASS ./formatarFrase.test.js
-   ```
+    ```javascript
+    // __tests__/formatarFrase.test.js
+
+    const { formatarFrase } = require('../script');
+
+    test('Formatar a frase com a primeira letra de cada palavra em maiúscula', () => {
+        const frase = "hello. how are you? i'm fine, thank you.";
+        const resultado = formatarFrase(frase);
+        expect(resultado).toBe("Hello. How are you? I'm fine, thank you.");
+    });
+    ```
+
+    - **Resultado:**
+
+        ```
+        Resultado: PASS ./formatarFrase.test.js
+        ```
 
 - ### `anagramaPalindromo`
 
-   ```javascript
-        // __tests__/formatarFrase.test.js
+    - **Descrição:**
 
-        const { anagramaPalindromo } = require('../script');
-        test('Reverter a ordem das palavras na frase', () => {
-            const frase = "racecar";
-            const resultado = anagramaPalindromo(frase);
-            expect(resultado).toBe("true");
-        });
-   ```
-  ```
-  Resultado: PASS ./anagramaPalindromo.test.js
-  ```
+        - Testa a função `anagramaPalindromo` para verificar se identifica corretamente se uma palavra é um anagrama de um palíndromo.
+
+    ```javascript
+    // __tests__/anagramaPalindromo.test.js
+
+    const { anagramaPalindromo } = require('../script');
+
+    test('Verificar se uma palavra é um anagrama de um palíndromo', () => {
+        const palavra = "racecar";
+        const resultado = anagramaPalindromo(palavra);
+        expect(resultado).toBe("true");
+    });
+    ```
+
+    - **Resultado:**
+
+        ```
+        Resultado: PASS ./anagramaPalindromo.test.js
+        ```
 
 ## Contato
 
@@ -313,3 +422,7 @@ Se você tiver alguma dúvida ou sugestão sobre este projeto, sinta-se à vonta
 - Nome: Allan Santos
 - E-mail: allannascimentodossantos@gmail.com
 - GitHub: [Allan-Santos](https://github.com/AllanSantos-DV)
+
+## Observação
+
+Realizei melhorias no conteúdo dos testes do Jest e incluí exemplos adicionais para cobrir diferentes cenários de entrada. Espero que isso atenda às suas expectativas.

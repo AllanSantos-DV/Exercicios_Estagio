@@ -1,6 +1,6 @@
-//Elementos html
 const inputValue = document.getElementById("input");
-let resultado = document.getElementById('resultado');
+const resultado = document.getElementById('resultado');
+const selectExercicio = document.getElementById("exercicio");
 
 const exercicios = {
     "Inverter palavras": inverterPalavras,
@@ -12,34 +12,42 @@ const exercicios = {
 
 function chamarExercicio() {
     const texto = inputValue.value;
-    const exercicio = document.getElementById("exercicio").value;
+    if (validarEntrada(texto)) {
+        exibirResultado("Entrada Inválida", "text-danger");
+        return;
+    }
+    const exercicio = selectExercicio.value;
     const funcaoExercicio = exercicios[exercicio];
-    (funcaoExercicio) ? resultado.innerHTML = funcaoExercicio(texto) : alert("Exercicio Invalido");
+    if (funcaoExercicio) {
+        const resultadoExercicio = funcaoExercicio(texto);
+        exibirResultado(resultadoExercicio, "text-success");
+    }
 }
 
-function validarEntrada() {
-    const valor = inputValue.value;
-    (valor === null || valor.trim() === "") ? alert("Entrada Invalida") : chamarExercicio();
+function validarEntrada(valor) {
+    return !valor || !valor.trim();
+}
+
+function exibirResultado(resultadoTexto, resultadoClasse) {
+    resultado.className = resultadoClasse;
+    resultado.innerHTML = resultadoTexto;
 }
 
 function inverterPalavras(frase) {
-    const palavras = frase.split(" ");
-    return palavras.reverse().join(" ")
+    return frase.split(" ").reverse().join(" ");
 }
 
 function removerDuplicados(frase) {
-    const caracteres = frase.split("");
-    const caracteresUnicos = [...new Set(caracteres)];
+    const caracteresUnicos = [...new Set(frase)];
     return caracteresUnicos.join("");
 }
 
 function maiorPalindromo(palavra) {
     let maiorPalindromo = '';
-
     for (let i = 0; i < palavra.length; i++) {
         for (let j = palavra.length; j > i + maiorPalindromo.length; j--) {
             const substring = palavra.substring(i, j);
-            if (substring === substring.split('').reverse().join('') && substring.length > maiorPalindromo.length) {
+            if (substring === substring.split('').reverse().join('')) {
                 maiorPalindromo = substring;
                 break;
             }
@@ -50,28 +58,30 @@ function maiorPalindromo(palavra) {
 
 function formatarFrase(frase) {
     const pontuacoesConhecidas = ['.', '!', '?', ':'];
-    const palavras = frase.split(' ');
-    const novaFrase = palavras.map((palavra, i) => {
-        if (i === 0 || pontuacoesConhecidas.includes(palavras[i - 1].slice(-1))) {
-            return palavra.charAt(0).toUpperCase() + palavra.slice(1);
-        } else {
-            return palavra;
-        }
-    });
+    const palavras = frase.toLowerCase().split(' ');
+    const novaFrase = palavras.map((palavra, i) =>
+        (i === 0 || pontuacoesConhecidas.includes(palavras[i - 1].slice(-1)))
+            ? palavra.charAt(0).toUpperCase() + palavra.slice(1)
+            : palavra
+    );
     return novaFrase.join(' ');
 }
 
 function anagramaPalindromo(palavra) {
     const charFrequencyMap = {};
-    for (let i = 0; i < palavra.length; i++) {
-        const char = palavra[i];
+    for (const char of palavra) {
         charFrequencyMap[char] = (charFrequencyMap[char] || 0) + 1;
     }
-    let oddCount = 0;
-    for (const count of Object.values(charFrequencyMap)) {
-        if (count % 2 !== 0) {
-            oddCount++;
-        }
-    }
+    const oddCount = Object.values(charFrequencyMap).filter(count => count % 2 !== 0).length;
     return oddCount <= 1 ? "true" : "false";
 }
+
+// Exportar as funções
+module.exports = {
+    validarEntrada,
+    inverterPalavras,
+    removerDuplicados,
+    maiorPalindromo,
+    formatarFrase,
+    anagramaPalindromo
+};

@@ -1,4 +1,4 @@
-// __tests__/formatarFrase.test.js
+// __tests__/anagramaPalindromo.test.js
 
 const { anagramaPalindromo } = require('../script');
 test('Reverter a ordem das palavras na frase', () => {
